@@ -26,7 +26,9 @@ header-product img{
     width: 90px;
 }
 .title-products {
-    font-size: 56px;
+    font-size: 36px;
+    font-weight: 500;
+    padding-bottom: 32px;
 }
 header-product{
     display: flex;
