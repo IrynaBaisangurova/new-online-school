@@ -20,7 +20,7 @@ close.addEventListener('click', function (){
 
 let products = null;
 // get data from file json
-fetch('https://IrynaBaisangurova.github.io/data.json')
+fetch('../data.json')
     .then(response => response.json())
     .then(data => {
         products = data;
