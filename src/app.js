@@ -20,12 +20,13 @@ close.addEventListener('click', function (){
 
 let products = null;
 // get data from file json
-fetch('../src/product.json')
+fetch('https://IrynaBaisangurova.github.io/IrynaBaisangurova/data.json')
     .then(response => response.json())
     .then(data => {
         products = data;
         addDataToHTML();
 })
+
 
 //show datas product in list 
 function addDataToHTML(){
