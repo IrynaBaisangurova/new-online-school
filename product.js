@@ -1,15 +1,11 @@
-import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                       *//* empty css                      */let o=document.querySelector(".iconCart"),a=document.querySelector(".cart"),s=document.querySelector(".container"),d=document.querySelector(".close");o.addEventListener("click",function(){a.style.right=="-100%"?(a.style.right="0",s.style.transform="translateX(-400px)"):(a.style.right="-100%",s.style.transform="translateX(0)")});d.addEventListener("click",function(){a.style.right="-100%",s.style.transform="translateX(0)"});let r=null;fetch("../product.json").then(t=>t.json()).then(t=>{r=t,u()});function u(){let t=document.querySelector(".listProduct");t.innerHTML="",r!=null&&r.forEach(e=>{let i=document.createElement("div");i.classList.add("item"),i.innerHTML=`<img src="${e.image}" alt="">
-            <h2>${e.name}</h2>
-             <div class="desc">${e.desc}</div>
-            <div class="price">₴${e.price} / 1 ${e.unit}</div>
-            <button onclick="addCart(${e.id})">Додати до кошика</button>`,t.appendChild(i)})}let l=[];function m(){var t=document.cookie.split("; ").find(e=>e.startsWith("listCart="));t?l=JSON.parse(t.split("=")[1]):l=[]}m();y();function y(){let t=document.querySelector(".listCart");t.innerHTML="";let e=document.querySelector(".totalQuantity"),i=0;l&&l.forEach(n=>{if(n){let c=document.createElement("div");c.classList.add("item"),c.innerHTML=`<img src="${n.image}">
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                       *//* empty css                      */let s=document.querySelector(".iconCart"),i=document.querySelector(".cart"),c=document.querySelector(".container"),o=document.querySelector(".close");s.addEventListener("click",function(){i.style.right=="-100%"?(i.style.right="0",c.style.transform="translateX(-400px)"):(i.style.right="-100%",c.style.transform="translateX(0)")});o.addEventListener("click",function(){i.style.right="-100%",c.style.transform="translateX(0)"});let n=[];function u(){var e=document.cookie.split("; ").find(a=>a.startsWith("listCart="));e?n=JSON.parse(e.split("=")[1]):n=[]}u();d();function d(){let e=document.querySelector(".listCart");e.innerHTML="";let a=document.querySelector(".totalQuantity"),l=0;n&&n.forEach(t=>{if(t){let r=document.createElement("div");r.classList.add("item"),r.innerHTML=`<img src="${t.image}">
                     <div class="content">
-                        <div class="name">${n.name}</div>
-                        <div class="price">₴${n.price} / 1 ${n.unit}</div>
+                        <div class="name">${t.name}</div>
+                        <div class="price">₴${t.price} / 1 ${t.unit}</div>
                     </div>
                     <div class="quantity">
-                        <button onclick="changeQuantity(${n.id}, '-')">-</button>
-                        <span class="value">${n.quantity}</span>
-                        <button onclick="changeQuantity(${n.id}, '+')">+</button>
-                    </div>`,t.appendChild(c),i=i+n.quantity}}),e.innerText=i}
+                        <button onclick="changeQuantity(${t.id}, '-')">-</button>
+                        <span class="value">${t.quantity}</span>
+                        <button onclick="changeQuantity(${t.id}, '+')">+</button>
+                    </div>`,e.appendChild(r),l=l+t.quantity}}),a.innerText=l}
 //# sourceMappingURL=product.js.map
