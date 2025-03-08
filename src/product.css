@@ -9,18 +9,25 @@ a{
 .section {
     padding: 200px 0;
 } */
-header-product .title-products {
+
+
+
+ .title-products {
+  text-align: start;
+  margin-top: 80px;
+  left: 10%;
   font-size: 24px;
   font-weight: 500;
-  padding-bottom: 44px;
-}  
+ 
+}   
 
-header-product {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.title-products  {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500; 
+  color: #2f4960;
 }
-header-product .icon-cart {
+/* header-product .icon-cart {
   width: 90px;
   cursor: pointer;
 }
@@ -44,11 +51,13 @@ header-product .totalQuantity {
   border-radius: 50%;
   transform: translateX(20px);
   cursor: pointer;
-}
+} */
 .listProduct {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     row-gap: 48px;
+    margin-top: 26px;
+  
   }
   .listProduct .item img {
     width: 100%;
@@ -59,11 +68,13 @@ header-product .totalQuantity {
   }
   .listProduct .item {
     position: relative;
-    border: 2px solid #dcdcdc;
-    border-radius: 24px;
     padding: 20px;
-    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
     transition: 0.2s;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(115, 117, 122, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
   }
   .listProduct .item h2 {
     margin: 0;
@@ -221,11 +232,6 @@ header-product .totalQuantity {
         margin: 8px 0 14px 0;
       }
 
-
-
-
-
-
 }
 @media screen and (min-width: 1024px) {
     .container {
@@ -255,20 +261,32 @@ header-product .totalQuantity {
 
 
 @media screen and (min-width: 1440px) {
+  .section-products {
+    margin-top: 80px;
+  }
   .container {
     width: 1200px;
     margin: auto;
     max-width: 90%;
+    padding-top: 130px;
     transition: transform 1s;
   }
-  /* header-product img{
-    width: 90px;
-} */
-
-  .title-products {
-    font-size: 36px;
-    font-weight: 500;
-    padding-bottom: 32px;
+   .container-product{ 
+     margin-top: 150px;
+   
+  } 
+  .container-product {
+    background: linear-gradient(227deg, rgba(170, 224, 224, 0.76) 2.49%, rgba(93, 122, 122, 0.76) 100%);  
+    border-radius: 12px;
+    height: 300px;
+    margin-top: 90px;
+  }
+  .title-products  {
+      width: 100%;
+      text-align: start;
+      font-size: 36px;
+    font-weight: 500; 
+    color: #2f4960;
   }
   .listProduct {
     display: grid;

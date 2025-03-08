@@ -1,3 +1,22 @@
+let iconCart = document.querySelector('.iconCart');
+let cart = document.querySelector('.cart');
+let container = document.querySelector('.container');
+let close = document.querySelector('.close');
+
+iconCart.addEventListener('click', function(){
+    if(cart.style.right == '-100%'){
+        cart.style.right = '0';
+        container.style.transform = 'translateX(-400px)';
+    }else{
+        cart.style.right = '-100%';
+        container.style.transform = 'translateX(0)';
+    }
+})
+close.addEventListener('click', function (){
+    cart.style.right = '-100%';
+    container.style.transform = 'translateX(0)';
+})
+
 let products = [
     {
         "id": 1,
@@ -8,6 +27,7 @@ let products = [
         "image": "images/1eggs-faverol.jpg"
     },
     {
+       
         "id": 2,
         "name": "Яйця інкубаційні Маран",
         "price": 60,
@@ -16,21 +36,20 @@ let products = [
         "image": "images/2maran-eggs.jpg"
     },
     {
-        "id": 3,
-        "name": "Яйця інкубаційні Амераукан",
-        "price": 70,
-        "unit": "шт",
-        "desc": "Кількість обмежена",
-        "image": "images/3ameraukan.jpg"
-    }
-    ,
-    {
         "id": 4,
         "name": "Яйця інкубаційні Ухейілюй",
         "price": 70,
         "unit": "шт",
         "desc": "Кількість обмежена",
         "image": "images/4uheilui.jpg"
+    },
+    {
+       "id": 3,
+        "name": "Яйця інкубаційні Амераукан",
+        "price": 70,
+        "unit": "шт",
+        "desc": "Кількість обмежена",
+        "image": "images/3ameraukan.jpg"
     },
     {
         "id": 5,
@@ -72,63 +91,33 @@ let products = [
         "desc": "Очікується",
         "image": "images/9duck.jpg"
     }
-]
+ 
+];
 
-
-let iconCart = document.querySelector('.iconCart');
-let cart = document.querySelector('.cart');
-let container = document.querySelector('.container');
-let close = document.querySelector('.close');
-
-iconCart.addEventListener('click', function(){
-    if(cart.style.right == '-100%'){
-        cart.style.right = '0';
-        container.style.transform = 'translateX(-400px)';
-    }else{
-        cart.style.right = '-100%';
-        container.style.transform = 'translateX(0)';
-    }
-})
-close.addEventListener('click', function (){
-    cart.style.right = '-100%';
-    container.style.transform = 'translateX(0)';
-})
-
-
-// let products = null;
-// get data from file json
-// fetch('../product.json')
-//     .then(response => response.json())
-//     .then(data => {
-//         products = data;
-//         addDataToHTML();
-// })
-
+addDataToHTML(); // Викликаємо функцію для додавання товарів у список
 
 //show datas product in list 
 function addDataToHTML(){
-    // remove datas default from HTML
     let listProductHTML = document.querySelector('.listProduct');
     listProductHTML.innerHTML = '';
 
-    // add new datas
     if(products != null) // if has data
     {
         products.forEach(product => {
             let newProduct = document.createElement('div');
             newProduct.classList.add('item');
             newProduct.innerHTML = 
-            `<img src="${product.image}" alt="">
+            `<img src="${product.image}" alt="product name">
             <h2>${product.name}</h2>
-             <div class="desc">${product.desc}</div>
-            <div class="price">₴${product.price} / 1 ${product.unit}</div>
+            <div class="desc">${product.desc}</div>
+            <div class="price">₴${product.price}  / 1 ${product.unit}</div>
             <button onclick="addCart(${product.id})">Додати до кошика</button>`;
 
             listProductHTML.appendChild(newProduct);
-
         });
     }
 }
+
 //use cookie so the cart doesn't get lost on refresh page
 
 
@@ -144,6 +133,7 @@ function checkCart(){
     }
 }
 checkCart();
+
 function addCart($idProduct){
     let productsCopy = JSON.parse(JSON.stringify(products));
     //// If this product is not in the cart
@@ -161,6 +151,7 @@ function addCart($idProduct){
     addCartToHTML();
 }
 addCartToHTML();
+
 function addCartToHTML(){
     // clear data default
     let listCartHTML = document.querySelector('.listCart');
@@ -178,7 +169,7 @@ function addCartToHTML(){
                     `<img src="${product.image}">
                     <div class="content">
                         <div class="name">${product.name}</div>
-                        <div class="price">₴${product.price} / 1 ${product.unit}</div>
+                        <div class="price">$${product.price} / 1 product</div>
                     </div>
                     <div class="quantity">
                         <button onclick="changeQuantity(${product.id}, '-')">-</button>
